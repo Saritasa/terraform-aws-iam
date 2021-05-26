@@ -1,3 +1,14 @@
+## This is a forked repository to provide possibility of setting custom `assume_role_policy` in `iam-assumable-roles-with-saml` module
+
+All changes are in adding new variables:
+
+  -  admin_assume_role_policy
+  -  poweruser_assume_role_policy
+  -  readonly_assume_role_policy
+
+So in case if these variables are passed in the module - their `assume policies` will be used, otherwise
+there would be used new policy with only SAML access permissions.
+
 # AWS Identity and Access Management (IAM) Terraform module
 
 ## Features

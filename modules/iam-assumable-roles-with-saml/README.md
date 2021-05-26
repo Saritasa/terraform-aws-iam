@@ -1,3 +1,14 @@
+This module is forked to provide possibility of `assume_role_policy` customization.
+
+There are added new variables:
+
+  -  admin_assume_role_policy
+  -  poweruser_assume_role_policy
+  -  readonly_assume_role_policy
+
+So in case if these variables are passed in the module - their `assume policies` will be used, otherwise
+there would be used new policy with only SAML access permissions.
+
 # iam-assumable-roles-with-saml
 
 Creates predefined IAM roles (admin, poweruser and readonly) which can be assumed by trusted resources using SAML Federated Users.

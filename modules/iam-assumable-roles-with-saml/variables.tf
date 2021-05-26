@@ -53,6 +53,12 @@ variable "admin_role_tags" {
   default     = {}
 }
 
+variable "admin_assume_role_policy" {
+  description = "Custom assume role policy for admin role."
+  type        = string
+  default     = ""
+}
+
 # Poweruser
 variable "create_poweruser_role" {
   description = "Whether to create poweruser role"
@@ -90,6 +96,12 @@ variable "poweruser_role_tags" {
   default     = {}
 }
 
+variable "poweruser_assume_role_policy" {
+  description = "Custom assume role policy for poweruser role."
+  type        = string
+  default     = ""
+}
+
 # Readonly
 variable "create_readonly_role" {
   description = "Whether to create readonly role"
@@ -125,6 +137,12 @@ variable "readonly_role_tags" {
   description = "A map of tags to add to readonly role resource."
   type        = map(string)
   default     = {}
+}
+
+variable "readonly_assume_role_policy" {
+  description = "Custom assume role policy for readonly role."
+  type        = string
+  default     = ""
 }
 
 variable "max_session_duration" {

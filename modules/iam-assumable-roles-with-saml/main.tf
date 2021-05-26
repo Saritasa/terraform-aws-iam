@@ -33,7 +33,7 @@ resource "aws_iam_role" "admin" {
   force_detach_policies = var.force_detach_policies
   permissions_boundary  = var.admin_role_permissions_boundary_arn
 
-  assume_role_policy = data.aws_iam_policy_document.assume_role_with_saml.json
+  assume_role_policy    = var.admin_assume_role_policy != "" ? var.admin_assume_role_policy : data.aws_iam_policy_document.assume_role_with_saml.json
 
   tags = var.admin_role_tags
 }
@@ -56,7 +56,7 @@ resource "aws_iam_role" "poweruser" {
   force_detach_policies = var.force_detach_policies
   permissions_boundary  = var.poweruser_role_permissions_boundary_arn
 
-  assume_role_policy = data.aws_iam_policy_document.assume_role_with_saml.json
+  assume_role_policy    = var.poweruser_assume_role_policy != "" ? var.poweruser_assume_role_policy : data.aws_iam_policy_document.assume_role_with_saml.json
 
   tags = var.poweruser_role_tags
 }
@@ -79,7 +79,7 @@ resource "aws_iam_role" "readonly" {
   force_detach_policies = var.force_detach_policies
   permissions_boundary  = var.readonly_role_permissions_boundary_arn
 
-  assume_role_policy = data.aws_iam_policy_document.assume_role_with_saml.json
+  assume_role_policy    = var.readonly_assume_role_policy != "" ? var.readonly_assume_role_policy : data.aws_iam_policy_document.assume_role_with_saml.json
 
   tags = var.readonly_role_tags
 }
